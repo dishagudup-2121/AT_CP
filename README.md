@@ -1,8 +1,6 @@
 # Automata Theory & Compiler Design — Course Project (AT_CP)
 
-> **Repository**: [https://github.com/dishagudup-2121/AT_CP](https://github.com/dishagudup-2121/AT_CP)  
-> **Student**: Disha Gudup  
-> **Project**: **FlowScript Studio** — Domain-Specific Language (DSL) Compiler & Deterministic Finite Automaton (DFA) Execution Engine
+> **FlowScript Studio** — A Domain-Specific Language (DSL) Compiler & Deterministic Finite Automaton (DFA) Runtime Engine
 
 ---
 
