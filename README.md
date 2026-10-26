@@ -57,14 +57,34 @@ AT_CP/
 
 ## ⚡ Quick Start
 
-### 1. Run Backend Server
+### Option A: One-Click Launch (Recommended for Windows)
+
+1. **First-time Setup**: Double-click **`setup.bat`** (or run `.\setup.bat` in terminal).  
+   *Automatically checks Python 3.11+ & Node.js 18+, creates virtual environment, and installs backend + frontend dependencies.*
+
+2. **Run Application**: Double-click **`start.bat`** (or run `.\start.bat` in terminal).  
+   *Launches FastAPI backend (:8000), Vite frontend (:5173), and opens `http://localhost:5173` in your browser automatically.*
+
+3. **Run 37-Test Suite**: Double-click **`test.bat`** (or run `.\test.bat` in terminal).  
+   *Executes all unit and integration pytest tests (100% passing).*
+
+---
+
+### Option B: Manual Terminal Setup
+
+#### 1. Setup & Run Backend (FastAPI)
 ```bash
-cd FlowScriptStudio/backend
-pip install -r requirements.txt
-python -m uvicorn app.main:app --reload --port 8000
+cd FlowScriptStudio
+python -m venv .venv
+# Windows:
+.\.venv\Scripts\python.exe -m pip install -r backend/requirements.txt
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
+# Linux / macOS:
+# source .venv/bin/activate && pip install -r backend/requirements.txt
+# uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
 ```
 
-### 2. Run Frontend Web Studio
+#### 2. Setup & Run Frontend (React 19 + Vite)
 ```bash
 cd FlowScriptStudio/frontend
 npm install
@@ -72,9 +92,9 @@ npm run dev
 ```
 Open [http://localhost:5173/](http://localhost:5173/) in your browser.
 
-### 3. Run Verification Tests
+#### 3. Run Verification Tests
 ```bash
-cd FlowScriptStudio/backend
-pytest
+cd FlowScriptStudio
+.\.venv\Scripts\python.exe -m pytest backend/tests -v
 ```
-*Output: 37 passed in 0.44s (100% pass rate).*
+*Output: 37 passed in ~0.45s (100% pass rate).*

@@ -1,9 +1,34 @@
 @import "tailwindcss";
 
 :root {
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  color: #e5e7eb;
-  background: #090d16;
+  /* Soft Ocean IDE Color Palette */
+  --ocean-bg: #182630;
+  --ocean-panel: #243944;
+  --ocean-sidebar: #1e2d38;
+  --ocean-surface: #2d424a;
+  --ocean-surface-hover: #344b54;
+  --ocean-border: #3a515b;
+  --ocean-border-light: #4a636e;
+  --ocean-accent: #577d83;
+  --ocean-accent-hover: #68939a;
+  --ocean-highlight: #8cb8b5;
+  --ocean-text-primary: #e8edef;
+  --ocean-text-secondary: #a9bac2;
+  --ocean-text-muted: #6c8693;
+
+  /* Semantic Status Colors */
+  --ocean-success: #6eaa8c;
+  --ocean-success-bg: rgba(110, 170, 140, 0.15);
+  --ocean-warning: #d8a657;
+  --ocean-warning-bg: rgba(216, 166, 87, 0.15);
+  --ocean-error: #c86d6d;
+  --ocean-error-bg: rgba(200, 109, 109, 0.15);
+  --ocean-running: #5b92e5;
+  --ocean-running-bg: rgba(91, 146, 229, 0.15);
+
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--ocean-text-primary);
+  background: var(--ocean-bg);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -16,13 +41,18 @@
 
 body {
   margin: 0;
+  padding: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow: hidden;
+  background-color: var(--ocean-bg);
+  color: var(--ocean-text-primary);
 }
 
 button,
 textarea,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -31,5 +61,61 @@ button {
 }
 
 #root {
-  min-height: 100vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--ocean-bg);
 }
+
+/* Custom scrollbar for Soft Ocean theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ocean-border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ocean-accent);
+}
+
+/* ReactFlow Canvas & Controls Dark Soft Ocean Theme */
+.react-flow__controls {
+  background: #1e2d38 !important;
+  border: 1px solid #3a515b !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45) !important;
+}
+
+.react-flow__controls-button {
+  background: #243944 !important;
+  border-bottom: 1px solid #3a515b !important;
+  color: #e8edef !important;
+  fill: #e8edef !important;
+  transition: all 0.15s ease !important;
+}
+
+.react-flow__controls-button:last-child {
+  border-bottom: none !important;
+}
+
+.react-flow__controls-button:hover {
+  background: #2d424a !important;
+  color: #8cb8b5 !important;
+  fill: #8cb8b5 !important;
+}
+
+.react-flow__controls-button svg {
+  fill: currentColor !important;
+}
+

@@ -106,6 +106,47 @@ export function registerFlowScript(monaco: typeof import("monaco-editor")) {
       return { suggestions };
     },
   });
+
+  // Soft Ocean Monaco Dark Theme
+  monaco.editor.defineTheme("soft-ocean", {
+    base: "vs-dark",
+    inherit: true,
+    rules: [
+      { token: "keyword", foreground: "8CB8B5", fontStyle: "bold" },
+      { token: "type.identifier", foreground: "E8EDEF", fontStyle: "bold" },
+      { token: "identifier", foreground: "D4E2E8" },
+      { token: "string", foreground: "6EAA8C" },
+      { token: "number", foreground: "D8A657" },
+      { token: "operator", foreground: "8CB8B5" },
+      { token: "delimiter", foreground: "A9BAC2" },
+      { token: "comment", foreground: "6C8693", fontStyle: "italic" },
+    ],
+    colors: {
+      "editor.background": "#182630",
+      "editor.foreground": "#E8EDEF",
+      "editor.lineHighlightBackground": "#1E2D3880",
+      "editor.lineHighlightBorder": "#2D424A00",
+      "editorCursor.foreground": "#8CB8B5",
+      "editorWhitespace.foreground": "#2D424A",
+      "editorIndentGuide.background": "#243944",
+      "editorIndentGuide.activeBackground": "#577D83",
+      "editorLineNumber.foreground": "#577D83",
+      "editorLineNumber.activeForeground": "#8CB8B5",
+      "editorGutter.background": "#182630",
+      "editorWidget.background": "#1E2D38",
+      "editorWidget.border": "#3A515B",
+      "editorSuggestWidget.background": "#1E2D38",
+      "editorSuggestWidget.border": "#3A515B",
+      "editorSuggestWidget.foreground": "#E8EDEF",
+      "editorSuggestWidget.selectedBackground": "#2D424A",
+      "editorSuggestWidget.highlightForeground": "#8CB8B5",
+      "editorHoverWidget.background": "#1E2D38",
+      "editorHoverWidget.border": "#3A515B",
+      "scrollbarSlider.background": "#2D424A80",
+      "scrollbarSlider.hoverBackground": "#344B54B3",
+      "scrollbarSlider.activeBackground": "#577D83CC",
+    },
+  });
 }
 
 export function setFlowScriptMarkers(

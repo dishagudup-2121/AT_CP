@@ -186,32 +186,41 @@ END
 ## 🚀 Setup & Installation Guide
 
 ### Prerequisites
-- **Python**: Version 3.11 or higher
-- **Node.js**: Version 18 or higher (with npm)
-- **PowerShell** (Windows) or Bash
+- **Python**: Version 3.11 or higher (Check "Add python.exe to PATH")
+- **Node.js**: Version 18 or higher (includes `npm`)
 
-### 1. Backend Setup
+---
 
-```powershell
-# Navigate to the project root
-cd C:\AT_CP\FlowScriptStudio
+### Option A: 1-Click Launch (Recommended for Windows)
 
-# Activate virtual environment
-.\.venv\Scripts\Activate.ps1
+1. **Setup**: Double-click **`setup.bat`** (creates `.venv`, installs Python + Node dependencies).
+2. **Start**: Double-click **`start.bat`** (starts backend and frontend, opens `http://localhost:5173`).
+3. **Test**: Double-click **`test.bat`** (runs all 37 formal verification tests).
 
-# Install dependencies
-pip install -r backend/requirements.txt
+---
+
+### Option B: Manual Setup
+
+#### 1. Backend Setup
+```bash
+# Navigate to FlowScriptStudio root
+cd FlowScriptStudio
+
+# Create virtual environment if not already created
+python -m venv .venv
+
+# Install backend dependencies
+.\.venv\Scripts\python.exe -m pip install -r backend/requirements.txt
 
 # Start FastAPI server
-uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
+.\.venv\Scripts\python.exe -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
 ```
 API Documentation will be live at: **`http://127.0.0.1:8000/docs`**
 
-### 2. Frontend Setup
-
-```powershell
+#### 2. Frontend Setup
+```bash
 # In a new terminal, navigate to frontend
-cd C:\AT_CP\FlowScriptStudio\frontend
+cd FlowScriptStudio/frontend
 
 # Install dependencies
 npm install
@@ -227,8 +236,9 @@ FlowScript Web Studio will be live at: **`http://localhost:5173`**
 
 ### 1. Backend Pytest Suite (Unit + Integration)
 
-```powershell
-.\.venv\Scripts\python.exe -m pytest backend\tests -v
+```bash
+cd FlowScriptStudio
+.\.venv\Scripts\python.exe -m pytest backend/tests -v
 ```
 
 **Results: 37 passed out of 37 tests (100% passing in ~0.37s)**
